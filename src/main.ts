@@ -1,9 +1,9 @@
-const W3CWebSocket = require("websocket").w3cwebsocket;
-const readline = require("readline");
-const fs = require("fs");
-const path = require("path");
+import { w3cwebsocket } from "websocket";
+import * as readline from "readline";
+import * as fs from "fs";
+import * as path from "path";
 
-var client = new W3CWebSocket("ws://localhost:5672");
+const client = new w3cwebsocket("ws://localhost:5672");
 
 const TIMEOUT = 1000;
 const TOKEN_PATH = path.join(__dirname, "token.txt");
@@ -13,9 +13,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-state = {
+const state = {
   playing: false,
-  currentSongTitle: "",
+  currentTrack: "",
   token: ""
 };
 
